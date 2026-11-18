@@ -23,7 +23,11 @@ python3 -m http.server 8000    # then open http://localhost:8000
 
 ## Publish
 
-Any static host. Cloudflare Pages or Netlify: connect this repository, no build command, output directory `/`
+Live on GitHub Pages at https://estuty.github.io/mailhousecentral/, served from the `gh-pages` branch.
+`.github/workflows/publish.yml` copies `main` to `gh-pages` on every push, so pushing to `main` is all it takes.
+`.nojekyll` tells Pages to serve the files as they are.
+
+Any other static host works too. Cloudflare Pages or Netlify: connect this repository, no build command, output directory `/`
 (the repository root). Every push to `main` then updates the live site.
 
 Once the site has a domain, make the `og:image` URL in `index.html` and `docs.html` absolute
