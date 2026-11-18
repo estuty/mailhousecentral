@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mailhouse documentation</title>
+  <meta name="description" content="Admin, migration and developer guides for Mailhouse, the WordPress plugin for SMTP delivery and a self-hosted newsletter.">
+  <meta name="theme-color" content="#17213d">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/archivo-latin-wdth-wght.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/literata-latin-opsz-wght.woff2" as="font" type="font/woff2" crossorigin>
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Mailhouse: one WordPress plugin for the whole path an email takes">
+  <meta property="og:description" content="SMTP and mail API delivery, a searchable log, and a self-hosted newsletter. Replaces WP Mail SMTP and Noptin.">
+  <meta property="og:image" content="assets/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="./" aria-label="Mailhouse home">
+      <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <rect width="32" height="32" rx="6" fill="#17213d"/>
+        <path d="M6 14.5 16 7l10 7.5V25H6Z" stroke="#fff" stroke-width="2.2" stroke-linejoin="round"/>
+        <path d="m6 14.5 10 6.5 10-6.5" stroke="#ef5a4f" stroke-width="2.2" stroke-linejoin="round"/>
+      </svg>
+      Mailhouse
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="./#delivery">Delivery</a>
+      <a href="./#newsletter">Newsletter</a>
+      <a href="./#start">Get started</a>
+      <a href="docs.html" aria-current="page">Docs</a>
+      <a class="btn btn-primary" href="https://github.com/estuty/mailhouse/releases/latest">Download</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap docs-layout">
+    <nav class="docs-toc" aria-label="Documentation contents">
+      <details class="toc-box" open>
+        <summary>Contents</summary>
+{{TOC}}
+      </details>
+    </nav>
+    <div class="prose">
+      <p class="docs-intro">These guides are generated from the <a href="https://github.com/estuty/mailhouse/tree/main/docs">docs folder</a> of the plugin’s repository, for the current release.</p>
+{{CONTENT}}
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>Mailhouse is free software, licensed GPL-2.0-or-later.</span>
+    <nav aria-label="Footer">
+      <a href="docs.html">Docs</a>
+      <a href="https://github.com/estuty/mailhouse/releases">Releases</a>
+      <a href="https://github.com/estuty/mailhouse">GitHub</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="site.js" defer></script>
+</body>
+</html>
