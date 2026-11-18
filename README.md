@@ -30,8 +30,8 @@ Live on GitHub Pages at https://estuty.github.io/mailhousecentral/, served from 
 Any other static host works too. Cloudflare Pages or Netlify: connect this repository, no build command, output directory `/`
 (the repository root). Every push to `main` then updates the live site.
 
-Once the site has a domain, make the `og:image` URL in `index.html` and `docs.html` absolute
-(for example `https://mailhouse.example/assets/og.png`) so link previews pick it up.
+The `og:image` and `og:url` tags use the GitHub Pages address. If the site moves to its own domain, update them
+in `index.html` and `docs.template.html`, then rebuild the docs.
 
 ## Keep it current
 
