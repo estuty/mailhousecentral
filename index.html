@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mailhouse: SMTP delivery and a newsletter in one WordPress plugin</title>
-  <meta name="description" content="Mailhouse sends WordPress email through SMTP or thirteen mail APIs, logs every message, and runs a self-hosted newsletter with opt-in forms, broadcasts and automations. Free, GPL, no phoning home.">
+  <title>Mailhouse Central: newsletters for many WordPress sites, from one dashboard</title>
+  <meta name="description" content="Mailhouse Central is one dashboard for the newsletters of many WordPress sites running the Mailhouse plugin. Each site keeps its own subscribers and its own say over who it mails. In development.">
   <meta name="theme-color" content="#17213d">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/archivo-latin-wdth-wght.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/literata-latin-opsz-wght.woff2" as="font" type="font/woff2" crossorigin>
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Mailhouse: one WordPress plugin for the whole path an email takes">
-  <meta property="og:description" content="SMTP and mail API delivery, a searchable log, and a self-hosted newsletter. Replaces WP Mail SMTP and Noptin.">
+  <meta property="og:title" content="Mailhouse Central: every site’s newsletter, run from one place">
+  <meta property="og:description" content="One dashboard for the newsletters of many WordPress sites. Each site keeps its own subscribers. In development.">
   <meta property="og:image" content="https://estuty.github.io/mailhousecentral/assets/og.png">
   <meta property="og:url" content="https://estuty.github.io/mailhousecentral/">
   <meta name="twitter:card" content="summary_large_image">
@@ -22,21 +22,20 @@
 
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="./" aria-label="Mailhouse home">
+    <a class="brand" href="./" aria-label="Mailhouse Central home">
       <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
         <rect width="32" height="32" rx="6" fill="#17213d"/>
         <path d="M6 14.5 16 7l10 7.5V25H6Z" stroke="#fff" stroke-width="2.2" stroke-linejoin="round"/>
         <path d="m6 14.5 10 6.5 10-6.5" stroke="#ef5a4f" stroke-width="2.2" stroke-linejoin="round"/>
       </svg>
-      Mailhouse
+      <span>Mailhouse <span class="brand-sub">Central</span></span>
     </a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
     <nav class="nav" id="nav" aria-label="Main">
-      <a href="#delivery">Delivery</a>
-      <a href="#newsletter">Newsletter</a>
-      <a href="#start">Get started</a>
-      <a href="docs.html">Docs</a>
-      <a class="btn btn-primary" href="https://github.com/estuty/mailhouse/releases/latest">Download</a>
+      <a href="#how">How it works</a>
+      <a href="#connect">Connecting a site</a>
+      <a href="#safeguards">Safeguards</a>
+      <a class="btn btn-primary" href="#roadmap">Roadmap</a>
     </nav>
   </div>
 </header>
@@ -46,281 +45,270 @@
   <section class="hero">
     <div class="wrap">
       <div>
-        <h1>One WordPress plugin for the whole path an email takes.</h1>
-        <p class="lede">Mailhouse sends your site’s mail through SMTP or any of thirteen mail APIs, keeps a log of every message, and runs a self-hosted newsletter. The plugin that writes your email is the one that delivers it.</p>
+        <h1>Every site’s newsletter, run from one place.</h1>
+        <p class="lede">Mailhouse Central is one dashboard for the newsletters of many WordPress sites. Each site keeps its own subscribers and the final say over who it mails. The centre is where you see them, organise them and write to them.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="https://github.com/estuty/mailhouse/releases/latest">Download Mailhouse 1.6.0</a>
-          <a class="btn btn-ghost" href="docs.html">Read the guides</a>
+          <a class="btn btn-primary" href="#roadmap">See where it’s up to</a>
+          <a class="btn btn-ghost" href="#how">How it works</a>
         </div>
-        <p class="hero-meta">Free and GPL-licensed. WordPress 6.0+ and PHP 7.4+.</p>
+        <p class="status-note"><span class="status-dot" aria-hidden="true"></span>In development. Phase 3 of 10 is built: you can sign in, add a website and watch it connect. Subscribers, campaigns and sending come next.</p>
       </div>
 
-      <div class="hero-art">
-        <div class="envelope" role="img" aria-label="An envelope postmarked Accepted, via one of Mailhouse’s fifteen transports">
-          <p class="env-from">From your own domain,<br>with your logo and colours</p>
-          <div class="env-stamp perf" aria-hidden="true">
-            <svg viewBox="0 0 32 32" fill="none">
-              <path d="M6 14.5 16 7l10 7.5V25H6Z" stroke="#17213d" stroke-width="2" stroke-linejoin="round"/>
-              <path d="m6 14.5 10 6.5 10-6.5" stroke="#c8231b" stroke-width="2" stroke-linejoin="round"/>
-            </svg>
+      <figure class="hero-art">
+        <div class="rack" role="img" aria-label="A sorting rack with one pigeonhole per website, each showing whether it is connected, pending or not reporting">
+          <div class="rack-plate">Websites</div>
+          <div class="rack-grid">
+            <div class="slot"><b>bakery<wbr>.example</b><span class="st st-good">Connected</span></div>
+            <div class="slot"><b>choir<wbr>.example</b><span class="st st-good">Connected</span></div>
+            <div class="slot"><b>allotments<wbr>.example</b><span class="st st-good">Connected</span></div>
+            <div class="slot"><b>library<wbr>.example</b><span class="st st-off">Not reporting</span></div>
+            <div class="slot"><b>cycleclub<wbr>.example</b><span class="st st-good">Connected</span></div>
+            <div class="slot"><b>gallery<wbr>.example</b><span class="st st-good">Connected</span></div>
+            <div class="slot"><b>parish<wbr>.example</b><span class="st st-good">Connected</span></div>
+            <div class="slot"><b>makers<wbr>.example</b><span class="st st-good">Connected</span></div>
+            <div class="slot slot-new" data-new>
+              <b>kiln<wbr>.example</b>
+              <span class="st st-wait">Pending</span>
+              <svg class="slot-mark" viewBox="0 0 100 100" aria-hidden="true">
+                <defs><path id="sm-top" d="M18 50a32 32 0 0 1 64 0"/><path id="sm-bot" d="M14 50a36 36 0 0 0 72 0"/></defs>
+                <circle cx="50" cy="50" r="44" fill="none" stroke="currentColor" stroke-width="3"/>
+                <circle cx="50" cy="50" r="24" fill="none" stroke="currentColor" stroke-width="2"/>
+                <g fill="currentColor" font-family="Archivo, sans-serif" font-weight="700" font-size="10" letter-spacing="1.4">
+                  <text><textPath href="#sm-top" startOffset="50%" text-anchor="middle">REGISTERED</textPath></text>
+                  <text><textPath href="#sm-bot" startOffset="50%" text-anchor="middle">REPORTING</textPath></text>
+                </g>
+                <path d="m39 50 8 8 15-16" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
           </div>
-          <svg class="env-postmark" viewBox="0 0 200 110" aria-hidden="true">
-            <defs>
-              <path id="pm-top" d="M112 55a38 38 0 0 1 76 0"/>
-              <path id="pm-bot" d="M104 55a46 46 0 0 0 92 0"/>
-            </defs>
-            <g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">
-              <path d="M2 30c9-7 17 7 26 0s17 7 26 0 17 7 26 0 17 7 26 0"/>
-              <path d="M2 46c9-7 17 7 26 0s17 7 26 0 17 7 26 0 17 7 26 0"/>
-              <path d="M2 62c9-7 17 7 26 0s17 7 26 0 17 7 26 0 17 7 26 0"/>
-              <path d="M2 78c9-7 17 7 26 0s17 7 26 0 17 7 26 0 17 7 26 0"/>
-              <circle cx="150" cy="55" r="51"/>
-              <circle cx="150" cy="55" r="31" stroke-width="1.6"/>
-            </g>
-            <g fill="currentColor" font-family="Archivo, sans-serif" font-weight="700" font-size="9.5" letter-spacing="1.6">
-              <text><textPath href="#pm-top" startOffset="50%" text-anchor="middle">MAILHOUSE</textPath></text>
-              <text><textPath href="#pm-bot" startOffset="50%" text-anchor="middle">ACCEPTED</textPath></text>
-            </g>
-            <g fill="currentColor" text-anchor="middle">
-              <text x="150" y="47" font-family="Archivo, sans-serif" font-size="8" letter-spacing="1">VIA</text>
-              <text class="pm-transport" x="150" y="60" font-size="13">SendGrid</text>
-              <text class="pm-date" x="150" y="71" font-family="Archivo, sans-serif" font-size="7.5" letter-spacing=".6">18 NOV 2026</text>
-            </g>
-          </svg>
-          <p class="env-to">
-            <span class="env-label">To</span>
-            <span>Everyone on your list,</span>
-            <span>and the customer waiting on a password reset</span>
-          </p>
         </div>
-        <p class="env-caption">Fifteen ways to send it, one log that says what happened.</p>
-      </div>
+        <figcaption class="env-caption">A new site turns from pending to connected by itself once it reports in.</figcaption>
+      </figure>
     </div>
   </section>
 
-  <section class="section section-sky" id="why" aria-labelledby="why-h">
+  <section class="section section-sky" id="how" aria-labelledby="how-h">
     <div class="wrap">
       <div class="section-head">
-        <h2 id="why-h">Two plugins, one email, and a gap between them</h2>
-        <p>Most WordPress sites send email with two plugins from two vendors, each doing half the job.</p>
+        <h2 id="how-h">One dashboard, many sites, each still in charge</h2>
+        <p>Every site runs the <a href="https://github.com/estuty/mailhouse">Mailhouse plugin</a> and carries on working on its own. Mailhouse Central joins them up without taking their lists away from them.</p>
       </div>
       <div class="seam">
         <div class="seam-half">
-          <h3>A newsletter plugin writes it</h3>
-          <p>Signup forms, the subscriber list, broadcasts, welcome emails. Its settings know nothing about how mail leaves the server.</p>
+          <h3>Each site owns</h3>
+          <ul class="plain">
+            <li>Its subscribers: addresses, names, fields and status</li>
+            <li>Consent, recorded per site with its dates</li>
+            <li>Its tags and who has them</li>
+            <li>Its mail settings and passwords, which never leave it</li>
+          </ul>
         </div>
         <div class="tear" aria-hidden="true"></div>
         <div class="seam-half">
-          <h3>An SMTP plugin sends it</h3>
-          <p>Credentials, the transport, the From address. It has never heard of your list, your design or your unsubscribe page.</p>
+          <h3>The centre owns</h3>
+          <ul class="plain">
+            <li>Who is the same person across sites</li>
+            <li>Mailing lists and saved segments, which can span sites</li>
+            <li>Campaigns: their content, schedule and audience</li>
+            <li>Central sending accounts, for mail sent from the centre</li>
+          </ul>
         </div>
       </div>
-      <p class="seam-verdict">The seam is where sites break. The newsletter is fine, the transport was reconfigured, and nobody finds out until a customer says the password reset never arrived.</p>
-      <p>Mailhouse does both jobs. One set of delivery settings, one log for every message, and one design applied to newsletters and WordPress’s own mail alike.</p>
+      <p class="seam-verdict">Every record has exactly one writer. An edit made in the dashboard is a request to the site, and the centre’s copy changes when the site reports back.</p>
+      <p>So there’s nothing to settle by guesswork. If a site and the centre both want to change a subscriber’s name, the centre asks and the site does it.</p>
     </div>
   </section>
 
-  <section class="section" id="delivery" aria-labelledby="delivery-h">
+  <section class="section" id="connect" aria-labelledby="connect-h">
     <div class="wrap">
       <div class="section-head">
-        <h2 id="delivery-h">Delivery that tells you what happened</h2>
-        <p>Replaces WP Mail SMTP. Every email WordPress or another plugin sends goes through your chosen transport, and the result is written down.</p>
+        <h2 id="connect-h">Connecting a site</h2>
+        <p>No password is typed into anything and no long-lived secret is ever emailed. The site makes its own key and keeps it.</p>
       </div>
       <div class="split">
-        <ul class="features">
-          <li><strong>A backup transport</strong><span>If the main one fails, the message goes out another way. Newsletters can have a transport of their own.</span></li>
-          <li><strong>An email log</strong><span>Every message, its result, and the transport’s own error text when it fails. Searchable, with retention, and resend for anything whose body was kept.</span></li>
-          <li><strong>Bounces that clean up after themselves</strong><span>SendGrid, Mailgun, Brevo, Postmark and Resend report back. A hard bounce retires the address, a spam complaint unsubscribes, and soft bounces are counted and forgiven on the next delivery.</span></li>
-          <li><strong>One design for every email</strong><span>Logo header, branded footer, social links, dark-mode aware. Colours come from your block theme’s palette in one click.</span></li>
-          <li><strong>Sender control</strong><span>Force the From address and name, set a default Reply-To, and send bounces to a mailbox somebody reads.</span></li>
-          <li><strong>Failure alerts and honest test sends</strong><span>One email an hour at most when delivery is failing. The test send reports exactly what the transport said.</span></li>
-          <li><strong>Credentials kept safe</strong><span>Encrypted at rest, or defined as constants in <code>wp-config.php</code> so they never touch the database.</span></li>
-        </ul>
-        <div class="sticky-col">
-          <h3 class="stamps-head">Fifteen transports</h3>
-          <p class="stamps-note">SMTP has quick setup for Gmail, Microsoft 365, Outlook.com, Zoho, Yahoo, iCloud, Amazon SES and Hostinger.</p>
-          <ul class="stamps" aria-label="Supported transports">
-            <li class="stamp perf is-core"><b>SMTP</b><small>Any mailbox</small></li>
-            <li class="stamp perf"><b>SendGrid</b><small>API</small></li>
-            <li class="stamp perf"><b>Mailgun</b><small>API</small></li>
-            <li class="stamp perf"><b>Brevo</b><small>API</small></li>
-            <li class="stamp perf"><b>Postmark</b><small>API</small></li>
-            <li class="stamp perf"><b>Resend</b><small>API</small></li>
-            <li class="stamp perf"><b>Amazon SES</b><small>API</small></li>
-            <li class="stamp perf"><b>Mailjet</b><small>API</small></li>
-            <li class="stamp perf"><b>SparkPost</b><small>API</small></li>
-            <li class="stamp perf"><b>SMTP2GO</b><small>API</small></li>
-            <li class="stamp perf"><b>Elastic Email</b><small>API</small></li>
-            <li class="stamp perf"><b>MailerSend</b><small>API</small></li>
-            <li class="stamp perf"><b>Zoho ZeptoMail</b><small>API</small></li>
-            <li class="stamp perf"><b>Mailchimp Transactional</b><small>API</small></li>
-            <li class="stamp perf"><b>PHP mail</b><small>WordPress default</small></li>
+        <ol class="steps">
+          <li><div><strong>Add the website</strong><p>Give it a name and its address under Websites, Add website.</p></div></li>
+          <li><div><strong>Copy the enrolment token</strong><p>It’s shown once, and it expires.</p></div></li>
+          <li><div><strong>Paste it into the site</strong><p>An administrator pastes the token and the centre’s address into Mailhouse’s settings. That screen arrives with plugin version 1.7.0.</p></div></li>
+          <li><div><strong>The site registers itself</strong><p>It generates a key pair, keeps the private half encrypted, and sends the public half to the centre with the token, which is then used up.</p></div></li>
+          <li><div><strong>It reports in</strong><p>A signed check-in every minute. The website shows as connected, and as not reporting if it goes quiet for five minutes.</p></div></li>
+        </ol>
+        <div>
+          <div class="token perf" aria-label="An example enrolment token">
+            <span class="token-label">Enrolment token</span>
+            <code class="token-value">mhe_••••••••••••</code>
+            <span class="token-note">Single use. Shown once.</span>
+          </div>
+          <div class="aside-note">
+            <h3>A copied site switches itself off</h3>
+            <p>Each registration is tied to the site’s address. A staging copy running somewhere else notices the mismatch and disables its own connection, so it can’t report as the live site or send its campaigns.</p>
+          </div>
+          <div class="aside-note">
+            <h3>Quiet sites still keep time</h3>
+            <p>WordPress only runs its schedule when someone visits. Once a minute the centre visits each connected site’s <code>wp-cron.php</code>, an empty request, so a site with no traffic still sends on time. It only ever calls public <code>https</code> addresses.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-ink" id="safeguards" aria-labelledby="safeguards-h">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="safeguards-h">Rules it’s built not to break</h2>
+        <p>These are the design’s ground rules. They hold for every site, every campaign and every person on a list.</p>
+      </div>
+      <div class="promises">
+        <div>
+          <h3>Consent belongs to each site</h3>
+          <p>Being subscribed on one site says nothing about another. Merging two sites’ records into one person never merges their consent.</p>
+        </div>
+        <div>
+          <h3>No one is resubscribed from the centre</h3>
+          <p>Nothing in the dashboard can move an unsubscribed or bounced address back to subscribed. Only the person can, from a link their site sends.</p>
+        </div>
+        <div>
+          <h3>The site has the last word</h3>
+          <p>Whatever recipient list the centre sends, the site checks each person again at the moment of sending. Someone who unsubscribed a minute ago is skipped.</p>
+        </div>
+        <div>
+          <h3>Unclear sends aren’t resent</h3>
+          <p>If a send is cut off and nobody can tell whether it went, it’s marked uncertain and waits for a person to decide. Nobody gets the same newsletter twice by accident.</p>
+        </div>
+        <div>
+          <h3>Secrets stay where they are</h3>
+          <p>A site’s mail passwords and its subscribers’ private links never leave the site. Content from the centre is plain data, never code the site would run.</p>
+        </div>
+        <div>
+          <h3>Sites call the centre, not the other way round</h3>
+          <p>Each site sends its changes and collects its instructions. A site that’s down, slow or behind a firewall affects only itself.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="failures" aria-labelledby="failures-h">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="failures-h">When something breaks</h2>
+        <p>How the system is designed to behave. Each case gets its own test in the milestone that builds it.</p>
+      </div>
+      <table class="checks failures">
+        <thead><tr><th scope="col">If this happens</th><th scope="col">Then</th></tr></thead>
+        <tbody>
+          <tr><td>The centre goes down</td><td>Sites keep taking signups, unsubscribes and sending. Changes queue up on each site and arrive in order when it’s back.</td></tr>
+          <tr><td>One site goes down</td><td>Only its own campaigns pause. Every other site carries on.</td></tr>
+          <tr><td>The connection drops mid-request</td><td>The sender tries again, and the other side recognises a repeat and doesn’t apply it twice.</td></tr>
+          <tr><td>A worker dies mid-send</td><td>The message is marked uncertain, never resent automatically.</td></tr>
+          <tr><td>The job queue is wiped</td><td>Jobs are rebuilt from the database, which is the only source of truth.</td></tr>
+          <tr><td>A site is restored from an old backup</td><td>The centre notices it has gone back in time and checks every subscriber with it before accepting new changes.</td></tr>
+          <tr><td>A mail provider sends the same report five times</td><td>It’s counted once.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section section-sky" id="roadmap" aria-labelledby="roadmap-h">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="roadmap-h">Where it’s up to</h2>
+        <p>Built in small milestones, each checked against written acceptance criteria before the next one starts. Nothing has been deployed yet.</p>
+      </div>
+      <ol class="roadmap">
+        <li class="is-done">
+          <span class="rm-state">Built</span>
+          <div><h3>Groundwork in the plugin</h3><p>A tested baseline, then Mailhouse 1.6.0: change hooks on every write, a queue two processes can’t both send from, and send results that say what happened.</p></div>
+        </li>
+        <li class="is-done">
+          <span class="rm-state">Built</span>
+          <div><h3>The central application’s foundation</h3><p>The database with each site’s rows walled off from every other’s, sign-in with a second factor and roles, the dashboard shell, and websites that register and report in.</p></div>
+        </li>
+        <li class="is-next">
+          <span class="rm-state">Next</span>
+          <div><h3>The connector</h3><p>Plugin 1.7.0. Sites connect from their own settings screen, send their changes up, and bring their whole list across, resumably.</p></div>
+        </li>
+        <li>
+          <span class="rm-state">Planned</span>
+          <div><h3>Subscriber management</h3><p>One directory across every site, with each site’s subscription shown separately. Edits as signed requests to the site, plus lists, tags, segments, import and export.</p></div>
+        </li>
+        <li>
+          <span class="rm-state">Planned</span>
+          <div><h3>Campaigns</h3><p>A central editor, per-site previews in each site’s own design, and targeting across sites that mails each person once.</p></div>
+        </li>
+        <li>
+          <span class="rm-state">Planned</span>
+          <div><h3>Sending through each site</h3><p>Plugin 1.9.0. Campaigns go out through the site’s own mail settings, in its own template, with live progress in the dashboard.</p></div>
+        </li>
+        <li>
+          <span class="rm-state">Planned</span>
+          <div><h3>Sending from the centre</h3><p>Central provider accounts, with rate limits, bounce and complaint reports, and unsubscribes passed back to the site.</p></div>
+        </li>
+        <li>
+          <span class="rm-state">Planned</span>
+          <div><h3>Analytics</h3><p>Growth, campaigns and delivery across sites. Figures a route can’t supply are shown as unavailable, never as zero.</p></div>
+        </li>
+        <li>
+          <span class="rm-state">Planned</span>
+          <div><h3>Production hardening</h3><p>A security review, long randomised data checks, a 50-site load test, a timed restore from backups, then the first deployment and a rollout in waves.</p></div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" id="today" aria-labelledby="today-h">
+    <div class="wrap">
+      <div class="split">
+        <div>
+          <h2 class="sub-h" id="today-h">What works today</h2>
+          <ul class="features">
+            <li><strong>Signing in</strong><span>Passwords checked against a breached-password list held on the server, a second factor with recovery codes, and owners and admins required to set one up before their powers apply.</span></li>
+            <li><strong>Roles and an audit log</strong><span>Four roles, decided in one place, with every sensitive action recorded and append-only.</span></li>
+            <li><strong>Websites</strong><span>Add, rename, pause, disconnect and remove sites; issue enrolment tokens; revoke a site’s key.</span></li>
+            <li><strong>Signed check-ins</strong><span>A site’s requests are refused unless its signature is right, and every way of getting it wrong is tested.</span></li>
+            <li><strong>Sites kept apart</strong><span>The database itself hides every other site’s rows from a request made on behalf of one site.</span></li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="sub-h">Built on</h2>
+          <ul class="stack">
+            <li><b>Next.js and TypeScript</b><span>The dashboard and its API</span></li>
+            <li><b>A separate worker</b><span>Everything in the background, so a dashboard restart never interrupts sending</span></li>
+            <li><b>PostgreSQL</b><span>Where everything lasting is kept</span></li>
+            <li><b>Redis</b><span>Scheduling only; nothing it holds can’t be rebuilt</span></li>
+            <li><b>Ed25519 signatures</b><span>One key pair per site; the centre keeps only the public half</span></li>
+            <li><b>Docker Compose behind Caddy</b><span>On one server, with automatic certificates</span></li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section section-sky" id="newsletter" aria-labelledby="newsletter-h">
-    <div class="wrap">
-      <div class="section-head">
-        <h2 id="newsletter-h">A newsletter that lives on your site</h2>
-        <p>Replaces Noptin. Your list stays in your database, and broadcasts go out through the same delivery settings as everything else.</p>
-      </div>
-      <div class="split">
-        <ul class="features">
-          <li><strong>Your own list</strong><span>Double opt-in, tags, custom fields, CSV import and export.</span></li>
-          <li><strong>Forms that hold up</strong><span>A shortcode or a block. They work without JavaScript, with a honeypot, a speed trap and a per-IP rate limit.</span></li>
-          <li><strong>Broadcasts from the post editor</strong><span>Sent from a queue in batches, so a big list can’t time out halfway through.</span></li>
-          <li><strong>Automations</strong><span>Confirmation, welcome, and new post notifications: one per post, or a daily or weekly digest.</span></li>
-          <li><strong>Unsubscribing done properly</strong><span>One-click unsubscribe (RFC 8058) and a preferences page in your brand’s colours.</span></li>
-          <li><strong>Tracking only if you want it</strong><span>Open and click tracking is off by default and clearly labelled.</span></li>
-        </ul>
-        <div>
-          <div class="sample">
-            <div class="sample-bar"><span>Add a signup form to any page</span><span>Shortcode</span></div>
-<pre><code><span class="tok-tag">[mailhouse_form]</span></code></pre>
-          </div>
-          <div class="sample">
-            <div class="sample-bar"><span>Merge tags, with fallbacks</span><span>Email body</span></div>
-<pre><code>Hi <span class="tok-tag">{{first_name|there}}</span>,
-
-Here’s what went up on the blog this week.
-
-<span class="tok-tag">{{post_card}}</span>
-
-<span class="tok-dim">Change what you get, or leave the list:</span>
-<span class="tok-tag">{{unsubscribe_url}}</span></code></pre>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section-ink" id="privacy" aria-labelledby="privacy-h">
-    <div class="wrap">
-      <div class="section-head">
-        <h2 id="privacy-h">Nothing leaves your site except your mail</h2>
-        <p>No analytics, no upsell notices, no phoning home.</p>
-      </div>
-      <div class="promises">
-        <div>
-          <h3>No outside requests</h3>
-          <p>The only network calls go to the mail provider you configured, plus a read of the public releases list to check for updates. No site data goes with it.</p>
-        </div>
-        <div>
-          <h3>Message bodies aren’t kept</h3>
-          <p>Unless you ask for it, password resets and receipts don’t sit in your database. The log records what was sent and how it went.</p>
-        </div>
-        <div>
-          <h3>Tracking is your call</h3>
-          <p>Open and click tracking ships switched off. When it’s on, pixels and links are signed so they can’t be forged.</p>
-        </div>
-        <div>
-          <h3>Your list survives an uninstall</h3>
-          <p>Deleting the plugin keeps your subscribers unless you switch that on under Settings, Advanced, first.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="start" aria-labelledby="start-h">
-    <div class="wrap">
-      <div class="section-head">
-        <h2 id="start-h">Up and sending in five steps</h2>
-        <p>Download <code>mailhouse-1.6.0.zip</code> from the releases page. Use that file, not the source archive: the source unpacks to a folder WordPress treats as a different plugin.</p>
-      </div>
-      <div class="split">
-        <ol class="steps">
-          <li><div><strong>Upload and activate</strong><p>Plugins, Add New, Upload Plugin.</p></div></li>
-          <li><div><strong>Choose a transport</strong><p>Mailhouse, Settings, Delivery. Pick one and fill in its fields.</p></div></li>
-          <li><div><strong>Send a test</strong><p>From Tools. It reports what the transport actually said.</p></div></li>
-          <li><div><strong>Add a signup form</strong><p>Paste <code>[mailhouse_form]</code> into a page, or add the Newsletter form block.</p></div></li>
-          <li><div><strong>Write your first email</strong><p>Mailhouse, Emails. Write one, then send.</p></div></li>
-        </ol>
-        <div>
-          <div class="aside-note">
-            <h3>Moving from Noptin or WP Mail SMTP?</h3>
-            <p>The Tools screen finds both and imports them: subscribers with their statuses, names and dates, plus your sender, mailer, SMTP settings and API keys. Nobody gets emailed during the move, and passwords are encrypted on the way in.</p>
-            <p><a href="docs.html#moving-in-from-noptin-and-wp-mail-smtp">Read the migration guide</a></p>
-          </div>
-          <div class="aside-note">
-            <h3>Updates like any other plugin</h3>
-            <p>New versions appear on the Plugins screen with their release notes and install in one click. WordPress’s auto-update toggle works too.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section-sky" id="verified" aria-labelledby="verified-h">
-    <div class="wrap">
-      <div class="section-head">
-        <h2 id="verified-h">Tested on a real WordPress install</h2>
-        <p>589 assertions across eight test suites, run against WordPress 7.1 on PHP 8.3 and MariaDB 11.8. Not mocks.</p>
-      </div>
-      <table class="checks">
-        <thead><tr><th scope="col">What was checked</th><th scope="col">Result</th></tr></thead>
-        <tbody>
-          <tr><td>Two processes claiming from one queue, 50 rounds of 500 rows</td><td>No row claimed twice, none missed</td></tr>
-          <tr><td>Unsubscribing in the middle of a campaign</td><td>Queued message skipped</td></tr>
-          <tr><td>Signup form: honeypot, speed trap, forged signature, missing consent</td><td>All rejected</td></tr>
-          <tr><td>One-click unsubscribe by <code>POST</code> (RFC 8058)</td><td>Subscriber removed</td></tr>
-          <tr><td>Tracking pixel and click redirect with a forged signature</td><td>Refused</td></tr>
-          <tr><td>Credentials stored in the database</td><td>Encrypted, round-trip</td></tr>
-          <tr><td>A delivery failure</td><td>Logged with the transport’s message</td></tr>
-          <tr><td>A real update installed from a published release</td><td>Same folder, stays active</td></tr>
-          <tr><td>Unsubscribe pages under dark, light and pale designs</td><td>Readable on all three</td></tr>
-        </tbody>
-      </table>
-      <div class="bugs">
-        <h3>Three bugs found this way, and fixed</h3>
-        <p><code>wp_mail()</code> rejected the sender before it could be corrected on hosts whose name has no dot. A second signup replaced the confirmation key while the throttle declined to send a new one, leaving a dead link in somebody’s inbox. And the tracking pixel declared a <code>Content-Length</code> one byte too long.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="faq" aria-labelledby="faq-h">
+  <section class="section section-sky" id="faq" aria-labelledby="faq-h">
     <div class="wrap">
       <div class="section-head">
         <h2 id="faq-h">Questions</h2>
       </div>
       <div class="faq">
         <details>
-          <summary>Can it replace both my newsletter plugin and my SMTP plugin?</summary>
-          <div><p>That’s what it’s for. The Tools screen detects Noptin and WP Mail SMTP and imports the subscribers and the delivery settings. Deactivate the old plugins afterwards: with two plugins reconfiguring PHPMailer, it’s a coin toss which one wins.</p></div>
+          <summary>Can I use it yet?</summary>
+          <div><p>Not on real sites. The foundation is built and runs on a local test setup with two WordPress sites. Connecting a site from its own settings arrives with the connector, the next milestone, and nothing will be deployed until production hardening is done.</p></div>
         </details>
         <details>
-          <summary>Will it send 10,000 emails?</summary>
-          <div><p>Yes, at the rate you set under Newsletter, Sending: a batch a minute, from a queue that survives a timeout. Whether they arrive is down to the transport and your domain’s SPF, DKIM and DMARC records. No plugin can stand in for those.</p></div>
+          <summary>Does a site need the centre to keep working?</summary>
+          <div><p>No. A connected site keeps taking signups, confirming, unsubscribing and sending its own newsletters whether or not the centre is reachable. A site that isn’t connected runs exactly as it does today.</p></div>
         </details>
         <details>
-          <summary>How do updates work if it isn’t on wordpress.org?</summary>
-          <div><p>Mailhouse checks its own releases on GitHub on WordPress’s usual twice-daily schedule. A new version appears on the Plugins and Updates screens with its notes and installs in one click. The check only reads the public releases list; no site data goes with it.</p><p>Versions before 1.4.0 had no updater, so getting to 1.4.0 or later is a one-time manual upload. Settings, subscribers and the log are untouched.</p></div>
+          <summary>What if the same person is on several sites’ lists?</summary>
+          <div><p>The dashboard shows them as one person with a separate subscription on each site. A campaign sent to several sites mails them once by default, from the first site in the campaign, or once per site if you choose.</p></div>
         </details>
         <details>
-          <summary>Where are my SMTP credentials stored?</summary>
-          <div><p>Encrypted in the options table using your site’s own salts. For anything shared or backed up, define <code>MAILHOUSE_SMTP_PASS</code> (or the matching constant for your provider) in <code>wp-config.php</code> and leave the field empty.</p></div>
+          <summary>Will newsletters still look like they come from each site?</summary>
+          <div><p>Yes. The centre writes the body; each site wraps it in its own template, with its own logo, colours and unsubscribe link.</p></div>
         </details>
         <details>
-          <summary>Does it work with other plugins’ email?</summary>
-          <div><p>Yes. Delivery works by substituting a PHPMailer subclass, so everything WordPress and other plugins do to a message still happens: <code>phpmailer_init</code>, <code>wp_mail_succeeded</code> and <code>wp_mail_failed</code> all fire as normal.</p></div>
+          <summary>Can I send through each site’s existing mail setup?</summary>
+          <div><p>That’s one of the two planned routes. A campaign can go out through each site’s own mail settings, or through a sending account held centrally. The route is chosen per site per campaign and never switches by itself.</p></div>
         </details>
-        <details>
-          <summary>What does it need to run?</summary>
-          <div><p>WordPress 6.0 or later, PHP 7.4 or later (tested on 8.3), and MySQL 5.7+ or MariaDB 10.3+. There’s no build step and no Composer: five database tables and one option.</p></div>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section-ink closing" aria-labelledby="closing-h">
-    <div class="wrap">
-      <h2 id="closing-h">Send every email from one place.</h2>
-      <p>Download the latest release, upload it to WordPress, and send a test. The guides cover everything from DNS records to writing your own transport.</p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="https://github.com/estuty/mailhouse/releases/latest">Download Mailhouse</a>
-        <a class="btn btn-ghost" href="https://github.com/estuty/mailhouse">View the source on GitHub</a>
       </div>
     </div>
   </section>
@@ -329,11 +317,11 @@ Here’s what went up on the blog this week.
 
 <footer class="site-footer">
   <div class="wrap">
-    <span>Mailhouse is free software, licensed GPL-2.0-or-later.</span>
+    <span>Mailhouse Central is in private development. Sites connect to it through the <a href="https://github.com/estuty/mailhouse">Mailhouse plugin</a>.</span>
     <nav aria-label="Footer">
-      <a href="docs.html">Docs</a>
-      <a href="https://github.com/estuty/mailhouse/releases">Releases</a>
-      <a href="https://github.com/estuty/mailhouse">GitHub</a>
+      <a href="#how">How it works</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="https://github.com/estuty/mailhouse">The plugin on GitHub</a>
     </nav>
   </div>
 </footer>

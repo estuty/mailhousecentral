@@ -1,16 +1,15 @@
-# Mailhouse website
+# Mailhouse Central website
 
-The public website for [Mailhouse](https://github.com/estuty/mailhouse), the WordPress plugin that handles
-SMTP and mail API delivery plus a self-hosted newsletter.
+The public website for Mailhouse Central, the dashboard for running newsletters across many WordPress sites
+that run the [Mailhouse plugin](https://github.com/estuty/mailhouse). Mailhouse Central itself is in private
+development; this site explains what it is, how it works and where it's up to.
+
 A static site with no build step: plain HTML, CSS, a little JavaScript and fonts.
 
 | File | What |
 |---|---|
-| `index.html` | Home page: the problem, delivery, newsletter, privacy, getting started, testing, questions |
-| `docs.html` | Admin, migration and developer guides, generated from the plugin's `docs/` folder |
-| `docs.template.html` | The page `docs.html` is built from (header, contents, footer) |
-| `build_docs.py` | Rebuilds `docs.html` from the plugin's guides |
-| `styles.css`, `site.js` | Shared styles (light and dark) and the script for the menu, the hero postmark and the docs contents |
+| `index.html` | The whole site: how it works, connecting a site, safeguards, failure behaviour, roadmap, what works today, questions |
+| `styles.css`, `site.js` | Styles (light and dark), the mobile menu, and the hero's one stamp from pending to connected |
 | `assets/fonts/` | Archivo, Literata, JetBrains Mono (latin, variable), SIL OFL 1.1, see `OFL.txt` |
 | `assets/og.png` | Social preview image, rendered from `og-source.html` at 1200×630 |
 | `favicon.svg` | The Mailhouse mark |
@@ -27,16 +26,13 @@ Live on GitHub Pages at https://estuty.github.io/mailhousecentral/, served from 
 `.github/workflows/publish.yml` copies `main` to `gh-pages` on every push, so pushing to `main` is all it takes.
 `.nojekyll` tells Pages to serve the files as they are.
 
-Any other static host works too. Cloudflare Pages or Netlify: connect this repository, no build command, output directory `/`
-(the repository root). Every push to `main` then updates the live site.
-
 The `og:image` and `og:url` tags use the GitHub Pages address. If the site moves to its own domain, update them
-in `index.html` and `docs.template.html`, then rebuild the docs.
+in `index.html`.
 
 ## Keep it current
 
-- Documentation: with the plugin cloned next to this repository (`../mailhouse`), run
-  `pip install markdown pymdown-extensions && python3 build_docs.py`.
-- Version number: the download buttons and the getting-started text name the current release (1.6.0).
-  Update them when a new version ships; the links themselves always point to the latest release.
-- Claims on the home page come from the plugin's `README.md` and `readme.txt`. Check them again when features change.
+- The roadmap section and the status line in the hero follow `docs/architecture/10-roadmap.md` in the
+  Mailhouse Central repository. Update both when a milestone is accepted.
+- "What works today" lists only what is built. Move items into it from the roadmap as they ship.
+- Every claim comes from Mailhouse Central's README, its architecture documents or its code. The repository is
+  private, so the site links only to the public plugin.
