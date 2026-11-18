@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Mailhouse Central: newsletters for many WordPress sites, from one dashboard</title>
-  <meta name="description" content="Mailhouse Central is one dashboard for the newsletters of many WordPress sites running the Mailhouse plugin. Each site keeps its own subscribers and its own say over who it mails. In development.">
+  <meta name="description" content="Mailhouse Central is one dashboard for the newsletters of many WordPress sites running the free Mailhouse plugin. Each site keeps its own subscribers and its own say over who it mails. A paid service, in development.">
   <meta name="theme-color" content="#17213d">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/archivo-latin-wdth-wght.woff2" as="font" type="font/woff2" crossorigin>
@@ -35,6 +35,7 @@
       <a href="#how">How it works</a>
       <a href="#connect">Connecting a site</a>
       <a href="#safeguards">Safeguards</a>
+      <a href="#pricing">Pricing</a>
       <a class="btn btn-primary" href="#roadmap">Roadmap</a>
     </nav>
   </div>
@@ -52,6 +53,7 @@
           <a class="btn btn-ghost" href="#how">How it works</a>
         </div>
         <p class="status-note"><span class="status-dot" aria-hidden="true"></span>In development. Phase 3 of 10 is built: you can sign in, add a website and watch it connect. Subscribers, campaigns and sending come next.</p>
+        <p class="hero-meta price-line">The Mailhouse plugin stays free. Central will be a paid service.</p>
       </div>
 
       <figure class="hero-art">
@@ -283,7 +285,43 @@
     </div>
   </section>
 
-  <section class="section section-sky" id="faq" aria-labelledby="faq-h">
+  <section class="section section-sky" id="pricing" aria-labelledby="pricing-h">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="pricing-h">The plugin stays free. Central is paid.</h2>
+        <p>Every site keeps using Mailhouse at no cost. Mailhouse Central, the dashboard that runs many sites together, will be a paid service. Prices will be published before it launches.</p>
+      </div>
+      <div class="pricing">
+        <div class="price-col">
+          <h3>Mailhouse plugin</h3>
+          <p class="price-tag">Free</p>
+          <p class="price-note">GPL-licensed, for every site, now and later.</p>
+          <ul class="plain">
+            <li>Sending through SMTP or thirteen mail APIs, with a log of every message</li>
+            <li>A self-hosted newsletter for the site’s own list</li>
+            <li>The connection to Central, built into the same plugin</li>
+            <li>Works exactly the same on a site that isn’t connected</li>
+          </ul>
+          <p class="price-link"><a href="https://github.com/estuty/mailhouse/releases/latest">Get the plugin</a></p>
+        </div>
+        <div class="price-col">
+          <h3>Mailhouse Central</h3>
+          <p class="price-tag">Paid</p>
+          <p class="price-note">Prices to be announced before launch.</p>
+          <ul class="plain">
+            <li>One dashboard for all your sites</li>
+            <li>One directory of subscribers across them</li>
+            <li>Campaigns written once and sent to many sites</li>
+            <li>Sending through each site or a central account</li>
+            <li>Analytics across every site</li>
+          </ul>
+          <p class="price-link">These arrive as the <a href="#roadmap">roadmap</a> is built.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="faq" aria-labelledby="faq-h">
     <div class="wrap">
       <div class="section-head">
         <h2 id="faq-h">Questions</h2>
@@ -292,6 +330,10 @@
         <details>
           <summary>Can I use it yet?</summary>
           <div><p>Not on real sites. The foundation is built and runs on a local test setup with two WordPress sites. Connecting a site from its own settings arrives with the connector, the next milestone, and nothing will be deployed until production hardening is done.</p></div>
+        </details>
+        <details>
+          <summary>What will it cost?</summary>
+          <div><p>The Mailhouse plugin is free and stays free, including the part that connects a site to Central. Mailhouse Central will be a paid service. Prices aren’t set yet; they’ll be published before it launches.</p></div>
         </details>
         <details>
           <summary>Does a site need the centre to keep working?</summary>
@@ -317,10 +359,11 @@
 
 <footer class="site-footer">
   <div class="wrap">
-    <span>Mailhouse Central is in private development. Sites connect to it through the <a href="https://github.com/estuty/mailhouse">Mailhouse plugin</a>.</span>
+    <span>Mailhouse Central is in private development and will be a paid service. Sites connect to it through the free <a href="https://github.com/estuty/mailhouse">Mailhouse plugin</a>.</span>
     <nav aria-label="Footer">
       <a href="#how">How it works</a>
       <a href="#roadmap">Roadmap</a>
+      <a href="#pricing">Pricing</a>
       <a href="https://github.com/estuty/mailhouse">The plugin on GitHub</a>
     </nav>
   </div>

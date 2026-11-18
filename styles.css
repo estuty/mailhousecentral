@@ -413,6 +413,19 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 .stack b { font-family: var(--display); font-weight: 700; }
 .stack span { color: var(--muted); font-size: 1rem; }
 
+/* Pricing */
+.pricing { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); max-width: 60rem; }
+.price-col { padding: 0 clamp(1.5rem, 4vw, 3rem) 0 0; }
+.price-col + .price-col { padding: 0 0 0 clamp(1.5rem, 4vw, 3rem); border-left: 1px solid var(--sky-2); }
+.price-col h3 { font-size: var(--t-3); margin-bottom: 0.8rem; }
+.price-tag {
+  font-family: var(--display); font-weight: 800; font-stretch: 120%;
+  font-size: var(--t-5); line-height: 1; margin: 0 0 0.5rem; letter-spacing: -0.01em;
+}
+.price-note { font-family: var(--display); font-size: 0.95rem; color: var(--muted); margin: 0 0 1.4rem; }
+.price-link { margin: 1.4rem 0 0; font-size: 1rem; color: var(--muted); }
+.price-line { margin-top: 0.6rem; padding-left: 1.2rem; }
+
 /* Privacy band */
 .promises {
   display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -527,6 +540,9 @@ p { margin: 0 0 1em; text-wrap: pretty; }
   }
   .promises { grid-template-columns: minmax(0, 1fr); }
   .roadmap li { grid-template-columns: minmax(0, 1fr); gap: 0.4rem; }
+  .pricing { grid-template-columns: minmax(0, 1fr); gap: 2.4rem; }
+  .price-col, .price-col + .price-col { padding: 0; border-left: 0; }
+  .price-col + .price-col { padding-top: 2.4rem; border-top: 1px solid var(--sky-2); }
   .failures td:first-child { width: auto; }
   .slot { min-height: 4.8rem; padding: 0.55rem 0.6rem; }
   .slot b { font-size: 0.78rem; }
