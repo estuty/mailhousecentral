@@ -13,7 +13,7 @@ A static site with no build step: plain HTML, CSS, a little JavaScript and fonts
 | `assets/fonts/` | Archivo, Literata, JetBrains Mono (latin, variable), SIL OFL 1.1, see `OFL.txt` |
 | `assets/og.png` | Social preview image, rendered from `og-source.html` at 1200×630 |
 | `favicon.svg` | The Mailhouse mark |
-| `contact-worker/` | Cloudflare Worker that emails contact form messages to you; not part of the published site |
+| `contact-worker/` | Cloudflare Worker that emails contact form messages to you; deployed to Cloudflare separately |
 
 ## Preview
 
