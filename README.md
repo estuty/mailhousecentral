@@ -13,6 +13,7 @@ A static site with no build step: plain HTML, CSS, a little JavaScript and fonts
 | `assets/fonts/` | Archivo, Literata, JetBrains Mono (latin, variable), SIL OFL 1.1, see `OFL.txt` |
 | `assets/og.png` | Social preview image, rendered from `og-source.html` at 1200×630 |
 | `favicon.svg` | The Mailhouse mark |
+| `contact-worker/` | Cloudflare Worker that emails contact form messages to you; not part of the published site |
 
 ## Preview
 
@@ -28,6 +29,13 @@ Live on GitHub Pages at https://estuty.github.io/mailhousecentral/, served from 
 
 The `og:image` and `og:url` tags use the GitHub Pages address. If the site moves to its own domain, update them
 in `index.html`.
+
+## Contact form
+
+The form at the bottom of the page posts to a Cloudflare Worker (`contact-worker/`) that emails each message
+through Cloudflare Email Service. It stays hidden until the Worker is deployed. Follow
+`contact-worker/README.md`, then put the Worker's address in the form's `action` and remove `hidden` from the
+contact section and its two links.
 
 ## Keep it current
 

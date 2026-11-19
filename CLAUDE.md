@@ -18,6 +18,10 @@ https://github.com/estuty/mailhouse-central). Its sites run the public Mailhouse
 - Mailhouse Central is in development and not deployed. Only state what it does or is designed to do, and say
   which: built features go under "What works today", the rest is the roadmap or the design. Check claims against
   its README, `docs/architecture/` or code. Don't link to the private repository or publish its internal docs.
+- Contact form: `<section id="contact">` posts to the Cloudflare Worker in `contact-worker/`, which emails each
+  message through Cloudflare Email Service with the visitor as Reply-To. The section and its header and footer
+  links stay `hidden` until the Worker is deployed and its address is in the form's `action`; setup is in
+  `contact-worker/README.md`. The recipient address is a Wrangler secret: never commit it.
 - Pricing: the Mailhouse plugin is free (GPL), including its connector to Central; Mailhouse Central is a paid
   service. No prices have been set: don't invent figures, plans or tiers until they are given.
 - Check changes at 1440, 820 and 390 px wide, light and dark: no horizontal scrolling, links and anchors resolve.

@@ -1,0 +1,13 @@
+{
+  "name": "mailhouse-contact",
+  "private": true,
+  "type": "module",
+  "description": "Contact form handler for the Mailhouse Central website, sending through Cloudflare Email Service",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^4.36.0"
+  }
+}

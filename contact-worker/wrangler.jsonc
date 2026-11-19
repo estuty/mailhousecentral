@@ -1,0 +1,27 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "mailhouse-contact",
+  "main": "src/index.js",
+  "compatibility_date": "2026-11-01",
+  "observability": { "enabled": true },
+
+  // Cloudflare Email Service. The sender domain must be onboarded under
+  // Compute > Email Service > Email Sending.
+  "send_email": [{ "name": "EMAIL", "remote": true }],
+
+  // At most 5 messages a minute from one connection (per Cloudflare location).
+  // namespace_id is any positive integer unique in your account.
+  "ratelimits": [
+    { "name": "CONTACT_LIMITER", "namespace_id": "4101", "simple": { "limit": 5, "period": 60 } }
+  ],
+
+  "vars": {
+    // Replace with an address on your onboarded domain, e.g. "contact@mailhousecentral.com".
+    "CONTACT_FROM": "contact@YOUR-DOMAIN",
+    "SITE_URL": "https://estuty.github.io/mailhousecentral/",
+    "ALLOWED_ORIGINS": "https://estuty.github.io, http://localhost:8000"
+  }
+
+  // CONTACT_TO, where messages are delivered, is a secret so it never appears in this
+  // public repository:  npx wrangler secret put CONTACT_TO
+}

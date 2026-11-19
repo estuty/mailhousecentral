@@ -120,6 +120,7 @@ body {
 }
 
 img, svg { display: block; max-width: 100%; }
+[hidden] { display: none !important; }
 
 a { color: var(--link); text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
 a:hover { text-decoration-thickness: 2px; }
@@ -425,6 +426,49 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 .price-note { font-family: var(--display); font-size: 0.95rem; color: var(--muted); margin: 0 0 1.4rem; }
 .price-link { margin: 1.4rem 0 0; font-size: 1rem; color: var(--muted); }
 .price-line { margin-top: 0.6rem; padding-left: 1.2rem; }
+
+/* Contact form */
+#contact .section-head { margin-bottom: 0; }
+.contact-privacy { font-size: 1rem !important; margin-top: 1.2rem !important; }
+.contact-form { display: grid; gap: 1.15rem; max-width: 34rem; }
+.field { display: grid; gap: 0.4rem; }
+.field label { font-family: var(--display); font-weight: 650; font-size: 0.95rem; }
+.field input, .field select, .field textarea {
+  font: inherit; font-size: 1rem; color: var(--fg);
+  background: var(--surface);
+  border: 1px solid var(--sky-2); border-radius: 4px;
+  padding: 0.7rem 0.8rem; width: 100%;
+}
+.field textarea { resize: vertical; min-height: 9rem; line-height: 1.55; }
+.field select {
+  appearance: none; padding-right: 2.4rem; cursor: pointer;
+  background-image: linear-gradient(45deg, transparent 50%, currentColor 50%), linear-gradient(135deg, currentColor 50%, transparent 50%);
+  background-position: calc(100% - 1.2rem) 55%, calc(100% - 0.85rem) 55%;
+  background-size: 0.35rem 0.35rem; background-repeat: no-repeat;
+}
+.field input:focus-visible, .field select:focus-visible, .field textarea:focus-visible { outline-offset: 1px; }
+.field [aria-invalid="true"] { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+.field-error { font-family: var(--display); font-size: 0.88rem; color: var(--red-ink); margin: 0; }
+.field-trap { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+.form-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.8rem 1.2rem; }
+.form-actions .btn { border: 0; cursor: pointer; }
+.form-actions .btn[disabled] { opacity: 0.6; cursor: progress; }
+.form-status { font-family: var(--display); font-size: 0.95rem; margin: 0; color: var(--muted); }
+.form-status.is-bad { color: var(--red-ink); }
+.form-flash {
+  display: none; font-family: var(--display); font-weight: 600;
+  padding: 0.9rem 1rem; border-radius: 4px; margin: 0 0 1.4rem; max-width: 34rem;
+}
+.form-flash:target { display: block; }
+.form-flash-ok { background: var(--surface); border-left: 4px solid var(--good); }
+.form-flash-bad { background: var(--surface); border-left: 4px solid var(--accent); }
+.form-done { font-family: var(--display); max-width: 34rem; }
+.form-done h3 { font-size: var(--t-3); margin-bottom: 0.5rem; }
+.form-done p { font-family: var(--text); color: var(--muted); }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .field-error,
+  :root:not([data-theme="light"]) .form-status.is-bad { color: #ff8a80; }
+}
 
 /* Privacy band */
 .promises {

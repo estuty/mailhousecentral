@@ -18,6 +18,88 @@
     });
   }
 
+  // Contact form: sent with fetch when JavaScript is on, as a normal form post when it isn't
+  var form = document.querySelector(".contact-form");
+  if (form) {
+    var started = form.querySelector('[name="started"]');
+    if (started) started.value = String(Date.now());
+    var status = form.querySelector(".form-status");
+    var button = form.querySelector('button[type="submit"]');
+    var messages = {
+      name: "Add your name.",
+      email: "Check your email address. We need it to reply.",
+      message: "Write a little more in your message (at least 10 characters)."
+    };
+    var clearError = function (input) {
+      input.removeAttribute("aria-invalid");
+      var err = document.getElementById(input.id + "-error");
+      if (err) err.remove();
+      input.removeAttribute("aria-describedby");
+    };
+    var showError = function (input, text) {
+      clearError(input);
+      input.setAttribute("aria-invalid", "true");
+      var p = document.createElement("p");
+      p.className = "field-error";
+      p.id = input.id + "-error";
+      p.textContent = text;
+      input.insertAdjacentElement("afterend", p);
+      input.setAttribute("aria-describedby", p.id);
+    };
+    form.addEventListener("input", function (e) {
+      if (e.target.getAttribute("aria-invalid") === "true" && e.target.checkValidity()) clearError(e.target);
+    });
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      status.textContent = "";
+      status.classList.remove("is-bad");
+      var firstBad = null;
+      ["name", "email", "message"].forEach(function (n) {
+        var input = form.elements[n];
+        input.value = input.value.trim() === "" ? "" : input.value;
+        if (!input.checkValidity()) {
+          showError(input, messages[n]);
+          if (!firstBad) firstBad = input;
+        } else {
+          clearError(input);
+        }
+      });
+      if (firstBad) { firstBad.focus(); return; }
+
+      button.disabled = true;
+      button.textContent = "Sending…";
+      fetch(form.action, { method: "POST", body: new FormData(form), headers: { Accept: "application/json" } })
+        .then(function (r) {
+          return r.json().catch(function () { return { ok: false }; }).then(function (data) {
+            if (!r.ok || !data.ok) {
+              var e = new Error(data.error || "");
+              e.fromServer = true;
+              throw e;
+            }
+          });
+        })
+        .then(function () {
+          var done = document.createElement("div");
+          done.className = "form-done";
+          done.setAttribute("tabindex", "-1");
+          var h = document.createElement("h3");
+          h.textContent = "Message sent";
+          var p = document.createElement("p");
+          p.textContent = "Thanks. We’ll reply to " + form.elements.email.value.trim() + ".";
+          done.appendChild(h);
+          done.appendChild(p);
+          form.replaceWith(done);
+          done.focus();
+        })
+        .catch(function (err) {
+          status.textContent = (err && err.fromServer && err.message) || "Your message wasn’t sent. Check your connection and send it again.";
+          status.classList.add("is-bad");
+          button.disabled = false;
+          button.textContent = "Send message";
+        });
+    });
+  }
+
   // Hero: the new site registers and reports in, once, when the rack is first seen.
   var slot = document.querySelector("[data-new]");
   if (slot) {

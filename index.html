@@ -36,6 +36,7 @@
       <a href="#connect">Connecting a site</a>
       <a href="#safeguards">Safeguards</a>
       <a href="#pricing">Pricing</a>
+      <a href="#contact" data-contact-link hidden>Contact</a>
       <a class="btn btn-primary" href="#roadmap">Roadmap</a>
     </nav>
   </div>
@@ -355,6 +356,54 @@
     </div>
   </section>
 
+  <section class="section section-sky" id="contact" aria-labelledby="contact-h" hidden>
+    <div class="wrap">
+      <div class="split">
+        <div class="section-head">
+          <h2 id="contact-h">Get in touch</h2>
+          <p>Ask about early access, pricing or the plugin. We reply by email.</p>
+          <p class="contact-privacy">Your message is emailed to us and isn’t stored on this website. We use your address only to reply.</p>
+        </div>
+        <div>
+          <p class="form-flash form-flash-ok" id="contact-sent" tabindex="-1">Message sent. We’ll reply by email.</p>
+          <p class="form-flash form-flash-bad" id="contact-failed" tabindex="-1">Your message wasn’t sent. Check each field and send it again.</p>
+          <form class="contact-form" action="https://mailhouse-contact.YOUR-SUBDOMAIN.workers.dev/" method="post" novalidate>
+            <div class="field">
+              <label for="cf-name">Name</label>
+              <input id="cf-name" name="name" type="text" autocomplete="name" maxlength="100" required>
+            </div>
+            <div class="field">
+              <label for="cf-email">Email</label>
+              <input id="cf-email" name="email" type="email" autocomplete="email" maxlength="254" required>
+            </div>
+            <div class="field">
+              <label for="cf-topic">What it’s about</label>
+              <select id="cf-topic" name="topic">
+                <option>Early access</option>
+                <option>Pricing</option>
+                <option>The Mailhouse plugin</option>
+                <option>Something else</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="cf-message">Message</label>
+              <textarea id="cf-message" name="message" rows="6" minlength="10" maxlength="5000" required></textarea>
+            </div>
+            <div class="field-trap" aria-hidden="true">
+              <label for="cf-website">Leave this empty</label>
+              <input id="cf-website" name="website_url" type="text" tabindex="-1" autocomplete="off">
+            </div>
+            <input type="hidden" name="started" value="">
+            <div class="form-actions">
+              <button class="btn btn-primary" type="submit">Send message</button>
+              <p class="form-status" role="status" aria-live="polite"></p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </main>
 
 <footer class="site-footer">
@@ -364,6 +413,7 @@
       <a href="#how">How it works</a>
       <a href="#roadmap">Roadmap</a>
       <a href="#pricing">Pricing</a>
+      <a href="#contact" data-contact-link hidden>Contact</a>
       <a href="https://github.com/estuty/mailhouse">The plugin on GitHub</a>
     </nav>
   </div>
