@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mailhouse Central: newsletters for many WordPress sites, from one dashboard</title>
-  <meta name="description" content="Mailhouse Central is one dashboard for the newsletters of many WordPress sites running the free Mailhouse plugin. Each site keeps its own subscribers and its own say over who it mails. A paid service, in development.">
+  <title>Mailhouse: the free WordPress mail plugin, and Mailhouse Central for many sites</title>
+  <meta name="description" content="Mailhouse is a free WordPress plugin for reliable email and a self-hosted newsletter. Mailhouse Central runs the newsletters of many Mailhouse sites from one dashboard, while each site keeps its own subscribers.">
   <meta name="theme-color" content="#17213d">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/archivo-latin-wdth-wght.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/literata-latin-opsz-wght.woff2" as="font" type="font/woff2" crossorigin>
   <meta property="og:type" content="website">
   <meta property="og:title" content="Mailhouse Central: every site’s newsletter, run from one place">
-  <meta property="og:description" content="One dashboard for the newsletters of many WordPress sites. Each site keeps its own subscribers. In development.">
+  <meta property="og:description" content="The free Mailhouse plugin for each WordPress site, and one dashboard for all of them. Each site keeps its own subscribers.">
   <meta property="og:image" content="https://estuty.github.io/mailhousecentral/assets/og.png">
   <meta property="og:url" content="https://estuty.github.io/mailhousecentral/">
   <meta name="twitter:card" content="summary_large_image">
@@ -32,12 +32,13 @@
     </a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
     <nav class="nav" id="nav" aria-label="Main">
-      <a href="#how">How it works</a>
-      <a href="#connect">Connecting a site</a>
-      <a href="#safeguards">Safeguards</a>
+      <a href="#plugin">The plugin</a>
+      <a href="#central">Central</a>
+      <a href="#connect">Connect</a>
+      <a href="#releases">Releases</a>
       <a href="#pricing">Pricing</a>
       <a href="#contact" data-contact-link hidden>Contact</a>
-      <a class="btn btn-primary" href="#roadmap">Roadmap</a>
+      <a class="btn btn-primary" href="https://app.mailhousecentral.com/">Sign in</a>
     </nav>
   </div>
 </header>
@@ -48,13 +49,13 @@
     <div class="wrap">
       <div>
         <h1>Every site’s newsletter, run from one place.</h1>
-        <p class="lede">Mailhouse Central is one dashboard for the newsletters of many WordPress sites. Each site keeps its own subscribers and the final say over who it mails. The centre is where you see them, organise them and write to them.</p>
+        <p class="lede">Each WordPress site runs the free Mailhouse plugin for its email and its own newsletter. Mailhouse Central joins them up: one dashboard to see every site’s subscribers, organise them and write to them, while each site keeps its own list and the final say over who it mails.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#roadmap">See where it’s up to</a>
-          <a class="btn btn-ghost" href="#how">How it works</a>
+          <a class="btn btn-primary" href="#plugin">Get the free plugin</a>
+          <a class="btn btn-ghost" href="https://app.mailhousecentral.com/">Sign in to Central</a>
         </div>
-        <p class="status-note"><span class="status-dot" aria-hidden="true"></span>In development. Phase 3 of 10 is built: you can sign in, add a website and watch it connect. Subscribers, campaigns and sending come next.</p>
-        <p class="hero-meta price-line">The Mailhouse plugin stays free. Central will be a paid service.</p>
+        <p class="status-note"><span class="status-dot is-live" aria-hidden="true"></span>Live. Mailhouse Central 1.0 runs at app.mailhousecentral.com, and Mailhouse <span data-plugin-version>1.7.0</span> connects WordPress sites to it.</p>
+        <p class="hero-meta price-line">The Mailhouse plugin is free. Central is a paid service.</p>
       </div>
 
       <figure class="hero-art">
@@ -90,11 +91,57 @@
     </div>
   </section>
 
+  <section class="section" id="plugin" aria-labelledby="plugin-h">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="plugin-h">The Mailhouse plugin: free, for every site</h2>
+        <p>One plugin for the whole path an email takes: getting it off the server reliably, and running the site’s own newsletter. It replaces a separate SMTP plugin and a separate newsletter plugin, and it works on its own, with or without Central.</p>
+      </div>
+      <div class="split">
+        <div>
+          <h3 class="sub-h">Delivery</h3>
+          <ul class="features">
+            <li><strong>Any mail service</strong><span>SMTP, or the APIs of SendGrid, Mailgun, Brevo, Postmark, Resend, Amazon SES, Mailjet, SparkPost, SMTP2GO, Elastic Email, MailerSend, Zoho ZeptoMail and Mailchimp Transactional, with an optional backup.</span></li>
+            <li><strong>A log of every message</strong><span>With the transport’s own error text when one fails, a resend button, and an email to you when delivery starts failing.</span></li>
+            <li><strong>One branded design</strong><span>Logo, colours, footer and social links for every email the site sends.</span></li>
+            <li><strong>Credentials kept safe</strong><span>Encrypted at rest, or defined as constants in wp-config.php.</span></li>
+            <li><strong>Bounces handled</strong><span>Bounce and complaint callbacks, so dead addresses retire themselves.</span></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="sub-h">Newsletter</h3>
+          <ul class="features">
+            <li><strong>A self-hosted list</strong><span>Double opt-in, tags and custom fields, kept in the site’s own database.</span></li>
+            <li><strong>Signup forms</strong><span>A shortcode or a block, and they work without JavaScript.</span></li>
+            <li><strong>Broadcasts and automations</strong><span>Written in the post editor and sent from a queue in batches. Confirmation, welcome and new-post emails.</span></li>
+            <li><strong>Unsubscribe done properly</strong><span>One-click unsubscribe (RFC 8058) and a preferences page for subscribers.</span></li>
+            <li><strong>Moving in is easy</strong><span>CSV import and export, and importers for Noptin and WP Mail SMTP.</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="split" style="margin-top: 2.5rem">
+        <div class="aside-note">
+          <h3>Updates that look after themselves</h3>
+          <p>New versions appear on the WordPress Plugins screen like any other plugin’s and install with one click, or automatically. Every release is signed, and the plugin checks each file against the signature before WordPress installs anything.</p>
+        </div>
+        <div class="aside-note">
+          <h3>Nothing phones home</h3>
+          <p>No analytics and no upsell notices. Mail goes only through the transport you choose, and a site’s data goes to Central only if you connect it. Open and click tracking is off until you switch it on.</p>
+        </div>
+      </div>
+      <p class="release-actions">
+        <a class="btn btn-primary" data-plugin-zip href="https://github.com/estuty/mailhouse/releases/latest">Download Mailhouse <span data-plugin-version>1.7.0</span></a>
+        <a class="btn btn-ghost" href="https://github.com/estuty/mailhouse">The plugin on GitHub</a>
+      </p>
+      <p class="hero-meta" style="margin-top: 0.9rem">WordPress 6.0 or later, PHP 7.4 or later. GPL-licensed. Install it under Plugins, Add New, Upload Plugin.</p>
+    </div>
+  </section>
+
   <section class="section section-sky" id="how" aria-labelledby="how-h">
     <div class="wrap">
       <div class="section-head">
         <h2 id="how-h">One dashboard, many sites, each still in charge</h2>
-        <p>Every site runs the <a href="https://github.com/estuty/mailhouse">Mailhouse plugin</a> and carries on working on its own. Mailhouse Central joins them up without taking their lists away from them.</p>
+        <p>Every site runs the Mailhouse plugin and carries on working on its own. Mailhouse Central joins them up without taking their lists away from them.</p>
       </div>
       <div class="seam">
         <div class="seam-half">
@@ -122,7 +169,36 @@
     </div>
   </section>
 
-  <section class="section" id="connect" aria-labelledby="connect-h">
+  <section class="section" id="central" aria-labelledby="central-h">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="central-h">What Mailhouse Central does</h2>
+        <p>Everything below is built and running at app.mailhousecentral.com.</p>
+      </div>
+      <div class="split">
+        <div>
+          <ul class="features">
+            <li><strong>One directory of everybody</strong><span>Every subscriber of every connected site in one place: search and filter by site, status, tag or date, and open a person to see each of their subscriptions separately.</span></li>
+            <li><strong>Lists, tags and segments</strong><span>Lists that span sites, tags managed on every site at once, and segments as saved filters with a preview of who they find on each site.</span></li>
+            <li><strong>Changes as requests</strong><span>Once you allow it for a site, edit, unsubscribe, remove or add subscribers from the dashboard. The site carries out each change under its own rules and reports back.</span></li>
+            <li><strong>Import, export and erasure</strong><span>Import a file into a site, export any filter, mark an address “do not contact”, or erase a person from the centre and from every site that holds them.</span></li>
+            <li><strong>Campaigns written once</strong><span>A visual editor or HTML, with merge tags. Previews show each site’s own header, footer and colours. Somebody on two sites gets it once unless you say otherwise.</span></li>
+          </ul>
+        </div>
+        <div>
+          <ul class="features">
+            <li><strong>Sent through each site</strong><span>Each site is handed the campaign as a signed request and sends it in its own template, through its own mail settings, to those still subscribed at that moment.</span></li>
+            <li><strong>Or sent from the centre</strong><span>Add accounts with Postmark, Resend, SendGrid, Amazon SES, MailChannels, Bird, Microsoft 365 or any mail server, check sender addresses against SPF, DKIM and DMARC, and choose that route for a site.</span></li>
+            <li><strong>Hold, resume, call off</strong><span>Campaigns can be tried out with a test send first, then held, let go or cancelled per site while they run.</span></li>
+            <li><strong>Delivery reports and analytics</strong><span>Accepted, delivered, bounced and complained, per campaign and site beside site. A figure a route can’t supply says “not available”, never zero.</span></li>
+            <li><strong>Sign-in that takes security seriously</strong><span>A second factor with recovery codes, passwords checked against a breached-password list, four roles, and an append-only audit log.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-sky" id="connect" aria-labelledby="connect-h">
     <div class="wrap">
       <div class="section-head">
         <h2 id="connect-h">Connecting a site</h2>
@@ -130,11 +206,11 @@
       </div>
       <div class="split">
         <ol class="steps">
-          <li><div><strong>Add the website</strong><p>Give it a name and its address under Websites, Add website.</p></div></li>
+          <li><div><strong>Add the website</strong><p>Give it a name and its address under Websites, Add website, in Central.</p></div></li>
           <li><div><strong>Copy the enrolment token</strong><p>It’s shown once, and it expires.</p></div></li>
-          <li><div><strong>Paste it into the site</strong><p>An administrator pastes the token and the centre’s address into Mailhouse’s settings. That screen arrives with plugin version 1.7.0.</p></div></li>
+          <li><div><strong>Paste it into the site</strong><p>On the site, an administrator pastes the token and the centre’s address under Mailhouse, Settings, Central. This needs Mailhouse 1.7.0 or later.</p></div></li>
           <li><div><strong>The site registers itself</strong><p>It generates a key pair, keeps the private half encrypted, and sends the public half to the centre with the token, which is then used up.</p></div></li>
-          <li><div><strong>It reports in</strong><p>A signed check-in every minute. The website shows as connected, and as not reporting if it goes quiet for five minutes.</p></div></li>
+          <li><div><strong>It copies its list across</strong><p>The site sends the list it already has, then every change about a minute after it happens. Once a day the two are compared and the centre’s copy is put right.</p></div></li>
         </ol>
         <div>
           <div class="token perf" aria-label="An example enrolment token">
@@ -143,12 +219,12 @@
             <span class="token-note">Single use. Shown once.</span>
           </div>
           <div class="aside-note">
-            <h3>A copied site switches itself off</h3>
-            <p>Each registration is tied to the site’s address. A staging copy running somewhere else notices the mismatch and disables its own connection, so it can’t report as the live site or send its campaigns.</p>
+            <h3>Read-only until you say so</h3>
+            <p>A newly connected site can be seen from Central but not changed. An administrator allows changes per site, and a site can refuse them outright with one line in wp-config.php.</p>
           </div>
           <div class="aside-note">
-            <h3>Quiet sites still keep time</h3>
-            <p>WordPress only runs its schedule when someone visits. Once a minute the centre visits each connected site’s <code>wp-cron.php</code>, an empty request, so a site with no traffic still sends on time. It only ever calls public <code>https</code> addresses.</p>
+            <h3>A copied site switches itself off</h3>
+            <p>Each registration is tied to the site’s address. A staging copy running somewhere else notices the mismatch and disables its own connection, so it can’t report as the live site or send its campaigns.</p>
           </div>
         </div>
       </div>
@@ -159,7 +235,7 @@
     <div class="wrap">
       <div class="section-head">
         <h2 id="safeguards-h">Rules it’s built not to break</h2>
-        <p>These are the design’s ground rules. They hold for every site, every campaign and every person on a list.</p>
+        <p>They hold for every site, every campaign and every person on a list, and each one is tested.</p>
       </div>
       <div class="promises">
         <div>
@@ -194,7 +270,7 @@
     <div class="wrap">
       <div class="section-head">
         <h2 id="failures-h">When something breaks</h2>
-        <p>How the system is designed to behave. Each case gets its own test in the milestone that builds it.</p>
+        <p>How the system behaves. Each case has its own test.</p>
       </div>
       <table class="checks failures">
         <thead><tr><th scope="col">If this happens</th><th scope="col">Then</th></tr></thead>
@@ -211,75 +287,61 @@
     </div>
   </section>
 
-  <section class="section section-sky" id="roadmap" aria-labelledby="roadmap-h">
+  <section class="section section-sky" id="releases" aria-labelledby="releases-h">
     <div class="wrap">
       <div class="section-head">
-        <h2 id="roadmap-h">Where it’s up to</h2>
-        <p>Built in small milestones, each checked against written acceptance criteria before the next one starts. Nothing has been deployed yet.</p>
+        <h2 id="releases-h">Releases and updates</h2>
+        <p>Both are built in small, tested releases. Here is what is current and how each one stays up to date.</p>
       </div>
-      <ol class="roadmap">
-        <li class="is-done">
-          <span class="rm-state">Built</span>
-          <div><h3>Groundwork in the plugin</h3><p>A tested baseline, then Mailhouse 1.6.0: change hooks on every write, a queue two processes can’t both send from, and send results that say what happened.</p></div>
-        </li>
-        <li class="is-done">
-          <span class="rm-state">Built</span>
-          <div><h3>The central application’s foundation</h3><p>The database with each site’s rows walled off from every other’s, sign-in with a second factor and roles, the dashboard shell, and websites that register and report in.</p></div>
-        </li>
-        <li class="is-next">
-          <span class="rm-state">Next</span>
-          <div><h3>The connector</h3><p>Plugin 1.7.0. Sites connect from their own settings screen, send their changes up, and bring their whole list across, resumably.</p></div>
-        </li>
-        <li>
-          <span class="rm-state">Planned</span>
-          <div><h3>Subscriber management</h3><p>One directory across every site, with each site’s subscription shown separately. Edits as signed requests to the site, plus lists, tags, segments, import and export.</p></div>
-        </li>
-        <li>
-          <span class="rm-state">Planned</span>
-          <div><h3>Campaigns</h3><p>A central editor, per-site previews in each site’s own design, and targeting across sites that mails each person once.</p></div>
-        </li>
-        <li>
-          <span class="rm-state">Planned</span>
-          <div><h3>Sending through each site</h3><p>Plugin 1.9.0. Campaigns go out through the site’s own mail settings, in its own template, with live progress in the dashboard.</p></div>
-        </li>
-        <li>
-          <span class="rm-state">Planned</span>
-          <div><h3>Sending from the centre</h3><p>Central provider accounts, with rate limits, bounce and complaint reports, and unsubscribes passed back to the site.</p></div>
-        </li>
-        <li>
-          <span class="rm-state">Planned</span>
-          <div><h3>Analytics</h3><p>Growth, campaigns and delivery across sites. Figures a route can’t supply are shown as unavailable, never as zero.</p></div>
-        </li>
-        <li>
-          <span class="rm-state">Planned</span>
-          <div><h3>Production hardening</h3><p>A security review, long randomised data checks, a 50-site load test, a timed restore from backups, then the first deployment and a rollout in waves.</p></div>
-        </li>
-      </ol>
+      <div class="pricing">
+        <div class="price-col">
+          <h3>Mailhouse plugin</h3>
+          <dl class="release-facts">
+            <dt>Latest</dt><dd><span data-plugin-version>1.7.0</span></dd>
+            <dt>Released</dt><dd><span data-plugin-date>27 November 2026</span></dd>
+            <dt>Source</dt><dd><a href="https://github.com/estuty/mailhouse">github.com/estuty/mailhouse</a></dd>
+          </dl>
+          <p>Every site updates itself from the plugin’s GitHub releases, through the normal WordPress Updates screen. A release installs only if it is signed and every file matches the signature.</p>
+          <p class="release-actions">
+            <a class="btn btn-primary" data-plugin-zip href="https://github.com/estuty/mailhouse/releases/latest">Download</a>
+            <a class="btn btn-ghost" data-plugin-notes href="https://github.com/estuty/mailhouse/releases/latest">What’s new</a>
+          </p>
+        </div>
+        <div class="price-col">
+          <h3>Mailhouse Central</h3>
+          <dl class="release-facts">
+            <dt>Running</dt><dd>1.0.2</dd>
+            <dt>Live since</dt><dd>November 2026</dd>
+            <dt>Address</dt><dd><a href="https://app.mailhousecentral.com/">app.mailhousecentral.com</a></dd>
+          </dl>
+          <p>Each new version is deployed from a tested release. A backup is taken and test-restored first, every database change is checked before it applies, and sites notice nothing: anything they send in those few seconds is sent again.</p>
+          <p class="release-actions">
+            <a class="btn btn-primary" href="https://app.mailhousecentral.com/">Sign in</a>
+          </p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="section" id="today" aria-labelledby="today-h">
+  <section class="section" id="stack" aria-labelledby="stack-h">
     <div class="wrap">
       <div class="split">
         <div>
-          <h2 class="sub-h" id="today-h">What works today</h2>
-          <ul class="features">
-            <li><strong>Signing in</strong><span>Passwords checked against a breached-password list held on the server, a second factor with recovery codes, and owners and admins required to set one up before their powers apply.</span></li>
-            <li><strong>Roles and an audit log</strong><span>Four roles, decided in one place, with every sensitive action recorded and append-only.</span></li>
-            <li><strong>Websites</strong><span>Add, rename, pause, disconnect and remove sites; issue enrolment tokens; revoke a site’s key.</span></li>
-            <li><strong>Signed check-ins</strong><span>A site’s requests are refused unless its signature is right, and every way of getting it wrong is tested.</span></li>
-            <li><strong>Sites kept apart</strong><span>The database itself hides every other site’s rows from a request made on behalf of one site.</span></li>
-          </ul>
-        </div>
-        <div>
-          <h2 class="sub-h">Built on</h2>
+          <h2 class="sub-h" id="stack-h">Central is built on</h2>
           <ul class="stack">
             <li><b>Next.js and TypeScript</b><span>The dashboard and its API</span></li>
             <li><b>A separate worker</b><span>Everything in the background, so a dashboard restart never interrupts sending</span></li>
-            <li><b>PostgreSQL</b><span>Where everything lasting is kept</span></li>
+            <li><b>PostgreSQL</b><span>Where everything lasting is kept, with each site’s rows walled off from every other’s</span></li>
             <li><b>Redis</b><span>Scheduling only; nothing it holds can’t be rebuilt</span></li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="sub-h">And kept safe by</h2>
+          <ul class="stack">
             <li><b>Ed25519 signatures</b><span>One key pair per site; the centre keeps only the public half</span></li>
+            <li><b>Signed plugin releases</b><span>Keys that never go near GitHub</span></li>
             <li><b>Docker Compose behind Caddy</b><span>On one server, with automatic certificates</span></li>
+            <li><b>Encrypted off-site backups</b><span>Every night, each one restored as a test</span></li>
           </ul>
         </div>
       </div>
@@ -289,8 +351,8 @@
   <section class="section section-sky" id="pricing" aria-labelledby="pricing-h">
     <div class="wrap">
       <div class="section-head">
-        <h2 id="pricing-h">The plugin stays free. Central is paid.</h2>
-        <p>Every site keeps using Mailhouse at no cost. Mailhouse Central, the dashboard that runs many sites together, will be a paid service. Prices will be published before it launches.</p>
+        <h2 id="pricing-h">The plugin is free. Central is paid.</h2>
+        <p>Every site keeps using Mailhouse at no cost. Mailhouse Central, the dashboard that runs many sites together, is a paid service. Prices will be published before it opens to everyone.</p>
       </div>
       <div class="pricing">
         <div class="price-col">
@@ -303,20 +365,20 @@
             <li>The connection to Central, built into the same plugin</li>
             <li>Works exactly the same on a site that isn’t connected</li>
           </ul>
-          <p class="price-link"><a href="https://github.com/estuty/mailhouse/releases/latest">Get the plugin</a></p>
+          <p class="price-link"><a data-plugin-zip href="https://github.com/estuty/mailhouse/releases/latest">Get the plugin</a></p>
         </div>
         <div class="price-col">
           <h3>Mailhouse Central</h3>
           <p class="price-tag">Paid</p>
-          <p class="price-note">Prices to be announced before launch.</p>
+          <p class="price-note">Prices to be announced.</p>
           <ul class="plain">
             <li>One dashboard for all your sites</li>
             <li>One directory of subscribers across them</li>
             <li>Campaigns written once and sent to many sites</li>
             <li>Sending through each site or a central account</li>
-            <li>Analytics across every site</li>
+            <li>Delivery reports and analytics across every site</li>
           </ul>
-          <p class="price-link">These arrive as the <a href="#roadmap">roadmap</a> is built.</p>
+          <p class="price-link"><a href="https://app.mailhousecentral.com/">Sign in</a> if you already have an account.</p>
         </div>
       </div>
     </div>
@@ -329,28 +391,32 @@
       </div>
       <div class="faq">
         <details>
-          <summary>Can I use it yet?</summary>
-          <div><p>Not on real sites. The foundation is built and runs on a local test setup with two WordPress sites. Connecting a site from its own settings arrives with the connector, the next milestone, and nothing will be deployed until production hardening is done.</p></div>
+          <summary>Can I use it now?</summary>
+          <div><p>The plugin, yes: download it and install it on any WordPress site. Mailhouse Central has been live since November 2026 with its first sites connected, and it opens to more as prices are set.</p></div>
         </details>
         <details>
           <summary>What will it cost?</summary>
-          <div><p>The Mailhouse plugin is free and stays free, including the part that connects a site to Central. Mailhouse Central will be a paid service. Prices aren’t set yet; they’ll be published before it launches.</p></div>
+          <div><p>The Mailhouse plugin is free and stays free, including the part that connects a site to Central. Mailhouse Central is a paid service. Prices aren’t set yet; they’ll be published before it opens to everyone.</p></div>
+        </details>
+        <details>
+          <summary>How does the plugin stay up to date?</summary>
+          <div><p>It checks its own GitHub releases twice a day, as WordPress does for any plugin. A new version shows on the Plugins screen and installs with one click, or by itself if you turn on auto-updates. Only signed releases install.</p></div>
         </details>
         <details>
           <summary>Does a site need the centre to keep working?</summary>
-          <div><p>No. A connected site keeps taking signups, confirming, unsubscribing and sending its own newsletters whether or not the centre is reachable. A site that isn’t connected runs exactly as it does today.</p></div>
+          <div><p>No. A connected site keeps taking signups, confirming, unsubscribing and sending its own newsletters whether or not the centre is reachable. A site that isn’t connected runs exactly as it does without Central.</p></div>
         </details>
         <details>
           <summary>What if the same person is on several sites’ lists?</summary>
-          <div><p>The dashboard shows them as one person with a separate subscription on each site. A campaign sent to several sites mails them once by default, from the first site in the campaign, or once per site if you choose.</p></div>
+          <div><p>The dashboard shows them as one person with a separate subscription on each site. A campaign sent to several sites mails them once by default, or once per site if you choose.</p></div>
         </details>
         <details>
           <summary>Will newsletters still look like they come from each site?</summary>
-          <div><p>Yes. The centre writes the body; each site wraps it in its own template, with its own logo, colours and unsubscribe link.</p></div>
+          <div><p>Yes. The centre writes the body; each site’s campaign goes out in that site’s own template, with its own logo, colours and unsubscribe link.</p></div>
         </details>
         <details>
           <summary>Can I send through each site’s existing mail setup?</summary>
-          <div><p>That’s one of the two planned routes. A campaign can go out through each site’s own mail settings, or through a sending account held centrally. The route is chosen per site per campaign and never switches by itself.</p></div>
+          <div><p>Yes, that’s the default: a site sends Central’s campaigns through its own mail settings. Or an administrator can choose a sending account held at the centre for a site, and its campaigns then go out from there, still in the site’s own template.</p></div>
         </details>
       </div>
     </div>
@@ -361,7 +427,7 @@
       <div class="split">
         <div class="section-head">
           <h2 id="contact-h">Get in touch</h2>
-          <p>Ask about early access, pricing or the plugin. We reply by email.</p>
+          <p>Ask about access, pricing or the plugin. We reply by email.</p>
           <p class="contact-privacy">Your message is emailed to us and isn’t stored on this website. We use your address only to reply.</p>
         </div>
         <div>
@@ -379,7 +445,7 @@
             <div class="field">
               <label for="cf-topic">What it’s about</label>
               <select id="cf-topic" name="topic">
-                <option>Early access</option>
+                <option>Access to Central</option>
                 <option>Pricing</option>
                 <option>The Mailhouse plugin</option>
                 <option>Something else</option>
@@ -408,13 +474,15 @@
 
 <footer class="site-footer">
   <div class="wrap">
-    <span>Mailhouse Central is in private development and will be a paid service. Sites connect to it through the free <a href="https://github.com/estuty/mailhouse">Mailhouse plugin</a>.</span>
+    <span>Mailhouse is a free WordPress plugin. Mailhouse Central, the dashboard for many Mailhouse sites, is a paid service.</span>
     <nav aria-label="Footer">
-      <a href="#how">How it works</a>
-      <a href="#roadmap">Roadmap</a>
+      <a href="#plugin">The plugin</a>
+      <a href="#central">Central</a>
+      <a href="#releases">Releases</a>
       <a href="#pricing">Pricing</a>
       <a href="#contact" data-contact-link hidden>Contact</a>
       <a href="https://github.com/estuty/mailhouse">The plugin on GitHub</a>
+      <a href="https://app.mailhousecentral.com/">Sign in</a>
     </nav>
   </div>
 </footer>

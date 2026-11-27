@@ -100,6 +100,32 @@
     });
   }
 
+  // The plugin's latest release, read from GitHub so the page never names an old version.
+  // The page already carries the version it was written with, so a failed or slow request
+  // changes nothing; a successful one replaces the version, the date and the download link.
+  if (document.querySelector("[data-plugin-version], [data-plugin-zip]") && window.fetch) {
+    fetch("https://api.github.com/repos/estuty/mailhouse/releases/latest", { headers: { Accept: "application/vnd.github+json" } })
+      .then(function (r) { if (!r.ok) throw new Error(String(r.status)); return r.json(); })
+      .then(function (rel) {
+        var version = String(rel.tag_name || "").replace(/^v/, "");
+        if (!/^\d+\.\d+\.\d+$/.test(version)) return;
+        var zip = (rel.assets || []).filter(function (a) { return a.name === "mailhouse-" + version + ".zip"; })[0];
+        document.querySelectorAll("[data-plugin-version]").forEach(function (el) { el.textContent = version; });
+        if (zip && /^https:\/\/github\.com\//.test(zip.browser_download_url)) {
+          document.querySelectorAll("[data-plugin-zip]").forEach(function (a) { a.href = zip.browser_download_url; });
+        }
+        if (rel.html_url && /^https:\/\/github\.com\//.test(rel.html_url)) {
+          document.querySelectorAll("[data-plugin-notes]").forEach(function (a) { a.href = rel.html_url; });
+        }
+        var when = new Date(rel.published_at);
+        if (!isNaN(when)) {
+          var text = when.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
+          document.querySelectorAll("[data-plugin-date]").forEach(function (el) { el.textContent = text; });
+        }
+      })
+      .catch(function () {});
+  }
+
   // Hero: the new site registers and reports in, once, when the rack is first seen.
   var slot = document.querySelector("[data-new]");
   if (slot) {
