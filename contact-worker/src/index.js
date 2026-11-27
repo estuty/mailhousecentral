@@ -10,7 +10,7 @@
 //   ALLOWED_ORIGINS  var     comma-separated origins allowed to post
 
 const LIMITS = { name: 100, email: 254, topic: 60, message: 5000 };
-const TOPICS = ["Early access", "Pricing", "The Mailhouse plugin", "Something else"];
+const TOPICS = ["Access to Central", "Pricing", "The Mailhouse plugin", "Something else"];
 const MIN_FILL_MS = 3000; // a person takes longer than this to fill the form in
 
 export default {
@@ -50,7 +50,7 @@ export default {
     };
 
     // Browsers always send Origin on a cross-site POST. Refuse other websites.
-    if (origin && !allowed.includes(origin)) return reply(false, 403, "This form only accepts messages from the Mailhouse Central website.");
+    if (origin && !allowed.includes(origin)) return reply(false, 403, "This form only accepts messages from mailhousecentral.com.");
 
     if (env.CONTACT_LIMITER) {
       const ip = request.headers.get("CF-Connecting-IP") || "unknown";
@@ -94,7 +94,7 @@ export default {
       `-- \n` +
       `From: ${name} <${email}>\n` +
       `Topic: ${topic}\n` +
-      `Sent from the Mailhouse Central website. Reply to this email to answer ${name}.`;
+      `Sent from the contact form on mailhousecentral.com. Reply to this email to answer ${name}.`;
 
     try {
       await env.EMAIL.send({

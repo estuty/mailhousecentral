@@ -16,9 +16,9 @@
   ],
 
   "vars": {
-    // Replace with an address on your onboarded domain, e.g. "contact@mailhousecentral.com".
-    "CONTACT_FROM": "contact@YOUR-DOMAIN",
-    "SITE_URL": "https://estuty.github.io/mailhousecentral/",
+    // An address on the domain onboarded under Compute > Email Service > Email Sending.
+    "CONTACT_FROM": "contact@mailhousecentral.com",
+    "SITE_URL": "https://mailhousecentral.com/",
     "ALLOWED_ORIGINS": "https://mailhousecentral.com, https://www.mailhousecentral.com, http://localhost:8000"
   }
 
