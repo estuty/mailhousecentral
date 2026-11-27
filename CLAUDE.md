@@ -5,7 +5,7 @@ and Mailhouse Central, the paid multi-site dashboard (private repository https:/
 live at https://app.mailhousecentral.com/). No framework and no build step; keep it that way.
 
 - One page, `index.html`. Live at https://mailhousecentral.com/ through the Cloudflare Worker `mailhousecentral`
-  (Workers Builds deploys every push to `main`); a copy also goes to GitHub Pages via `gh-pages`. Never give the
+  (Workers Builds deploys every push to `main`); GitHub Pages is not used. Never give the
   Worker a wildcard route: `app.mailhousecentral.com` is the Central dashboard on its own server.
 - `styles.css`: design tokens at the top (`--ink` navy franking ink, `--paper` cool page, `--sky` airmail blue,
   `--red` postmark red, used sparingly; `--good`, `--waiting`, `--off` are the dashboard's own status colours).

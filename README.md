@@ -30,8 +30,8 @@ and certificates; `app.mailhousecentral.com` is the Central dashboard on its own
 the Worker. Don't add a wildcard route (`*.mailhousecentral.com/*`) to the Worker: it would catch every proxied
 subdomain, the dashboard included if its record were ever switched to proxied.
 
-A second copy still publishes to GitHub Pages (https://estuty.github.io/mailhousecentral/) through
-`.github/workflows/publish.yml` and `.nojekyll`. It can be switched off under the repository's Settings → Pages.
+GitHub Pages is no longer used: the old copy at estuty.github.io/mailhousecentral, its `gh-pages` branch and
+the workflow that filled it were removed in November 2026.
 
 `og:image`, `og:url` and the canonical link in `index.html` use https://mailhousecentral.com/.
 
