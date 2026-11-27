@@ -19,7 +19,7 @@
     // Replace with an address on your onboarded domain, e.g. "contact@mailhousecentral.com".
     "CONTACT_FROM": "contact@YOUR-DOMAIN",
     "SITE_URL": "https://estuty.github.io/mailhousecentral/",
-    "ALLOWED_ORIGINS": "https://estuty.github.io, http://localhost:8000"
+    "ALLOWED_ORIGINS": "https://mailhousecentral.com, https://www.mailhousecentral.com, http://localhost:8000"
   }
 
   // CONTACT_TO, where messages are delivered, is a secret so it never appears in this
