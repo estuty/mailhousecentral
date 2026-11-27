@@ -4,7 +4,18 @@ A Cloudflare Worker that receives the website's contact form and emails each mes
 [Cloudflare Email Service](https://developers.cloudflare.com/email-service/). Reply to the email and your
 answer goes straight to the visitor.
 
-It is not part of the website: GitHub Pages only serves files, so the form posts here instead.
+It is a Worker of its own, separate from the static site, so the form posts here.
+
+## How it runs now
+
+- Worker `mailhouse-contact`, live at https://mailhouse-contact.estuty777.workers.dev/, set up in November 2026.
+- Built and deployed by Cloudflare Workers Builds from this folder (root directory `/contact-worker`) on every
+  push to `main`, with `npx wrangler deploy`. No local `wrangler login` is needed.
+- Sends as `contact@mailhousecentral.com`; mailhousecentral.com is onboarded under Email Service → Email Sending.
+- `CONTACT_TO`, where messages go, is a secret set in the dashboard: Workers & Pages → mailhouse-contact →
+  Settings → Variables and secrets. Change it there; secrets survive later deploys.
+
+The steps below are how to set it up from scratch with Wrangler instead.
 
 ## What you need
 

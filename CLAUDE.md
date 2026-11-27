@@ -22,10 +22,11 @@ live at https://app.mailhousecentral.com/). No framework and no build step; keep
   under "What Mailhouse Central does", the plugin's in its own section. Check claims against Central's README,
   `docs/architecture/` or code, and the plugin's readme.txt. Don't link to the private repository or publish
   its internal docs. Central's running version under Releases is typed by hand: update it on each deploy.
-- Contact form: `<section id="contact">` posts to the Cloudflare Worker in `contact-worker/`, which emails each
-  message through Cloudflare Email Service with the visitor as Reply-To. The section and its header and footer
-  links stay `hidden` until the Worker is deployed and its address is in the form's `action`; setup is in
-  `contact-worker/README.md`. The recipient address is a Wrangler secret: never commit it.
+- Contact form (live): `<section id="contact">` posts to the Worker `mailhouse-contact`
+  (https://mailhouse-contact.estuty777.workers.dev/), built from `contact-worker/` by Workers Builds on every push
+  to `main`. It sends as contact@mailhousecentral.com (domain onboarded for Email Sending) with the visitor as
+  Reply-To. The form's topics must match `TOPICS` in `contact-worker/src/index.js`. The recipient is the
+  `CONTACT_TO` secret in the dashboard: never commit it.
 - Pricing: the Mailhouse plugin is free (GPL), including its connector to Central; Mailhouse Central is a paid
   service. No prices have been set: don't invent figures, plans or tiers until they are given.
 - Check changes at 1440, 820 and 390 px wide, light and dark: no horizontal scrolling, links and anchors resolve.

@@ -37,10 +37,12 @@ the workflow that filled it were removed in November 2026.
 
 ## Contact form
 
-The form at the bottom of the page posts to a Cloudflare Worker (`contact-worker/`) that emails each message
-through Cloudflare Email Service. It stays hidden until the Worker is deployed. Follow
-`contact-worker/README.md`, then put the Worker's address in the form's `action` and remove `hidden` from the
-contact section and its two links.
+The form at the bottom of the page posts to the Cloudflare Worker `mailhouse-contact`
+(https://mailhouse-contact.estuty777.workers.dev/), built from `contact-worker/` in this repository by Workers
+Builds on every push to `main`. It emails each message through Cloudflare Email Service as
+contact@mailhousecentral.com, with the visitor as Reply-To. Where messages go is the Worker's `CONTACT_TO`
+secret, set in the dashboard (Workers & Pages → mailhouse-contact → Settings → Variables and secrets), never in
+this repository. Details in `contact-worker/README.md`.
 
 ## Keep it current
 
