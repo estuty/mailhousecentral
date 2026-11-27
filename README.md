@@ -23,12 +23,17 @@ python3 -m http.server 8000    # then open http://localhost:8000
 
 ## Publish
 
-Live on GitHub Pages at https://estuty.github.io/mailhousecentral/, served from the `gh-pages` branch.
-`.github/workflows/publish.yml` copies `main` to `gh-pages` on every push, so pushing to `main` is all it takes.
-`.nojekyll` tells Pages to serve the files as they are.
+Live at **https://mailhousecentral.com/** (and `www.`), served by the Cloudflare Worker `mailhousecentral`, a
+static-assets Worker connected to this repository with Workers Builds: every push to `main` is built and deployed
+within about a minute. Pushing to `main` is all it takes. Its two custom domains create their own DNS records
+and certificates; `app.mailhousecentral.com` is the Central dashboard on its own server and is not routed through
+the Worker. Don't add a wildcard route (`*.mailhousecentral.com/*`) to the Worker: it would catch every proxied
+subdomain, the dashboard included if its record were ever switched to proxied.
 
-The `og:image` and `og:url` tags use the GitHub Pages address. If the site moves to its own domain, update them
-in `index.html`.
+A second copy still publishes to GitHub Pages (https://estuty.github.io/mailhousecentral/) through
+`.github/workflows/publish.yml` and `.nojekyll`. It can be switched off under the repository's Settings → Pages.
+
+`og:image`, `og:url` and the canonical link in `index.html` use https://mailhousecentral.com/.
 
 ## Contact form
 
